@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tramita Fácil · Tus trámites en España, más fáciles y seguros</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{--bg:#f7fafc;--surface:#fff;--ink:#0f2547;--mute:#52627c;--blue:#1856c8;--blue-d:#0d3a8f;--green:#18a566;--green-l:#e3f6ec;--blue-l:#e6eefc;--line:#dfe7f2;--hero:linear-gradient(135deg,#eaf1fe 0%,#e6f7ee 100%);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1426;--surface:#12203a;--ink:#eaf1ff;--mute:#a4b3cc;--blue:#6ea0ff;--blue-d:#9dbdff;--green:#3ccf8e;--green-l:#12332a;--blue-l:#17294d;--line:#223457;--hero:linear-gradient(135deg,#0f1d38 0%,#0f2a2b 100%)}}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);margin:0}
+.mute{color:var(--mute)}.blue{color:var(--blue)}.green{color:var(--green)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:1.25rem;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px -14px rgba(24,86,200,.3)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:700;border-radius:999px;padding:.9rem 1.6rem;transition:.2s;cursor:pointer;border:2px solid transparent}
+.btn-p{background:var(--blue);color:#fff}.btn-p:hover{background:var(--blue-d)}
+.btn-s{background:transparent;color:var(--blue);border-color:var(--blue)}.btn-s:hover{background:var(--blue-l)}
+.btn-g{background:#17a34a;color:#fff}.btn-g:hover{background:#12843b}
+.ico{width:3.25rem;height:3.25rem;border-radius:1rem;display:grid;place-items:center;background:var(--blue-l);color:var(--blue)}
+.ico.g{background:var(--green-l);color:var(--green)}
+.chip{display:inline-flex;gap:.4rem;align-items:center;background:var(--green-l);color:var(--green);font-weight:700;font-size:.85rem;border-radius:999px;padding:.4rem .9rem}
+.field{width:100%;background:var(--bg);border:1.5px solid var(--line);border-radius:.9rem;padding:.8rem 1rem;color:var(--ink);font:inherit}
+.field:focus{outline:3px solid var(--blue-l);border-color:var(--blue)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+.float{animation:fl 6s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-10px)}}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.float{animation:none}html{scroll-behavior:auto}}
+h1,h2,h3{letter-spacing:-.02em}
+.nav a.l{font-weight:600;color:var(--mute)}.nav a.l:hover{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<!-- ===== CONFIGURACIÓN: edita aquí tus datos reales ===== -->
+<script>
+const CONFIG = {
+  telefono: "",          // Ej.: "+34 600 000 000" (visible en la web)
+  email: "",             // Ej.: "info@tudominio.es"
+  direccion: "",         // Ej.: "Calle, número, ciudad"
+  whatsapp: "",          // Solo dígitos con prefijo: "34600000000"
+  whatsappMensaje: "Hola, me gustaría solicitar asesoramiento con mis trámites.",
+  formEndpoint: ""       // URL de tu servicio de formularios (Formspree, Make, tu API…)
+};
+</script>
+
+<!-- ===== CABECERA ===== -->
+<header class="sticky top-0 z-40 backdrop-blur" style="background:color-mix(in srgb,var(--bg) 88%,transparent);border-bottom:1px solid var(--line)">
+ <div class="max-w-6xl mx-auto px-5 h-[72px] flex items-center justify-between">
+  <a href="#inicio" class="flex items-center gap-2.5" aria-label="Tramita Fácil, inicio">
+   <svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="5" width="25" height="33" rx="5" fill="#1856c8"/><rect x="14" y="12" width="14" height="2.6" rx="1.3" fill="#fff" opacity=".85"/><rect x="14" y="18" width="10" height="2.6" rx="1.3" fill="#fff" opacity=".6"/><circle cx="33" cy="33" r="11" fill="#18a566" stroke="#fff" stroke-width="2.5"/><path d="M27.5 33.3l4 4 6.5-7.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   <span class="font-extrabold text-xl leading-none">Tramita <span class="green">Fácil</span></span>
+  </a>
+  <nav class="nav hidden lg:flex items-center gap-7" aria-label="Principal">
+   <a class="l" href="#inicio">Inicio</a><a class="l" href="#nosotros">Sobre nosotros</a><a class="l" href="#servicios">Servicios</a><a class="l" href="#como">¿Cómo funciona?</a><a class="l" href="#porque">¿Por qué elegirnos?</a><a class="l" href="#compromiso">Compromiso social</a>
+   <a href="#contacto" class="btn btn-p !py-2.5">Contacto</a>
+  </nav>
+  <button id="menuBtn" class="lg:hidden p-2 rounded-xl" style="border:1px solid var(--line)" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><i data-lucide="menu"></i></button>
+ </div>
+ <div id="mobileMenu" class="hidden lg:hidden px-5 pb-5" style="background:var(--bg)">
+  <nav class="nav flex flex-col gap-1" aria-label="Móvil">
+   <a class="l py-3 text-lg" href="#inicio">Inicio</a><a class="l py-3 text-lg" href="#nosotros">Sobre nosotros</a><a class="l py-3 text-lg" href="#servicios">Servicios</a><a class="l py-3 text-lg" href="#como">¿Cómo funciona?</a><a class="l py-3 text-lg" href="#porque">¿Por qué elegirnos?</a><a class="l py-3 text-lg" href="#compromiso">Compromiso social</a>
+   <a href="#contacto" class="btn btn-p mt-2">Solicitar asesoramiento</a>
+  </nav>
+ </div>
+</header>
+
+<main>
+<!-- ===== INICIO ===== -->
+<section id="inicio" style="background:var(--hero)">
+ <div class="max-w-6xl mx-auto px-5 py-14 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
+  <div class="reveal">
+   <span class="chip"><i data-lucide="shield-check" class="w-4 h-4"></i> Orientación clara y de confianza</span>
+   <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05]">Tus trámites en España, <span class="blue">más fáciles</span> y <span class="green">seguros</span></h1>
+   <p class="mt-5 text-lg mute max-w-xl">Ayudamos a las personas inmigrantes a entender sus trámites, preparar su documentación y conocer sus derechos, con un lenguaje sencillo y un trato cercano.</p>
+   <div class="mt-8 flex flex-col sm:flex-row gap-3">
+    <a href="#contacto" class="btn btn-p">Solicitar asesoramiento <i data-lucide="arrow-right" class="w-5 h-5"></i></a>
+    <a href="#servicios" class="btn btn-s">Conocer nuestros servicios</a>
+   </div>
+   <p class="mt-5 text-sm mute italic">“Tu futuro en España empieza con un trámite más fácil”.</p>
+  </div>
+  <div class="reveal relative" aria-hidden="true">
+   <svg viewBox="0 0 480 420" class="w-full max-w-lg mx-auto float">
+    <rect x="20" y="30" width="440" height="360" rx="44" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>
+    <circle cx="380" cy="90" r="46" fill="var(--green-l)"/><circle cx="90" cy="330" r="38" fill="var(--blue-l)"/>
+    <!-- personas -->
+    <g><circle cx="150" cy="190" r="34" fill="#8d5a3b"/><path d="M104 330c0-62 92-62 92 0v30h-92z" fill="#1856c8"/><path d="M118 180c4-30 56-34 64 0-18-14-46-14-64 0z" fill="#2b1a10"/></g>
+    <g><circle cx="240" cy="165" r="36" fill="#f1c9a5"/><path d="M190 330c0-70 100-70 100 0v30h-100z" fill="#18a566"/><path d="M204 150c6-36 66-40 72 0-20-16-52-16-72 0z" fill="#5a3a1e"/></g>
+    <g><circle cx="332" cy="190" r="34" fill="#c68b59"/><path d="M286 330c0-62 92-62 92 0v30h-92z" fill="#0d3a8f"/><path d="M298 190c-6-40 58-50 68-6-14-12-50-18-68 6z" fill="#161616"/></g>
+    <!-- documento verificado -->
+    <g><rect x="300" y="262" width="120" height="100" rx="16" fill="var(--surface)" stroke="var(--blue)" stroke-width="3"/><rect x="316" y="282" width="62" height="8" rx="4" fill="var(--blue)" opacity=".5"/><rect x="316" y="300" width="44" height="8" rx="4" fill="var(--blue)" opacity=".3"/><circle cx="394" cy="340" r="24" fill="#18a566"/><path d="M382 340l9 9 16-18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g fill="#e8b000"><path d="M70 90l6 12 13 2-10 9 3 13-12-7-12 7 3-13-10-9 13-2z"/></g>
+   </svg>
+  </div>
+ </div>
+</section>
+
+<!-- ===== SOBRE NOSOTROS ===== -->
+<section id="nosotros" class="py-20">
+ <div class="max-w-4xl mx-auto px-5 text-center reveal">
+  <span class="chip">Sobre nosotros</span>
+  <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold">Nacemos para acompañarte</h2>
+  <p class="mt-6 text-xl leading-relaxed mute">“Tramita Fácil nace para ayudar a las personas inmigrantes a superar las dificultades administrativas, ofreciendo información fiable, orientación y acompañamiento. Queremos que todas las personas puedan conocer sus derechos y realizar sus trámites con mayor seguridad y confianza”.</p>
+  <div class="mt-8 card p-5 text-left flex gap-3 items-start" style="background:var(--blue-l)">
+   <i data-lucide="info" class="blue shrink-0 mt-0.5"></i>
+   <p class="text-sm mute"><strong style="color:var(--ink)">Importante:</strong> ofrecemos orientación y acompañamiento administrativo. No garantizamos resultados ni la concesión de permisos. Los casos que requieren asistencia jurídica se derivan a profesionales cualificados.</p>
+  </div>
+ </div>
+</section>
+
+<!-- ===== SERVICIOS ===== -->
+<section id="servicios" class="py-20" style="background:var(--surface);border-block:1px solid var(--line)">
+ <div class="max-w-6xl mx-auto px-5">
+  <div class="text-center max-w-2xl mx-auto reveal">
+   <span class="chip">Nuestros servicios</span>
+   <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold">Te orientamos en cada trámite</h2>
+   <p class="mt-3 mute">Siete áreas donde podemos ayudarte a entender, preparar y organizar tu documentación.</p>
+  </div>
+  <div id="serviceGrid" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+ </div>
+</section>
+
+<!-- ===== CÓMO FUNCIONA ===== -->
+<section id="como" class="py-20">
+ <div class="max-w-6xl mx-auto px-5">
+  <div class="text-center max-w-2xl mx-auto reveal">
+   <span class="chip">¿Cómo funciona?</span>
+   <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold">Cuatro pasos, sin complicaciones</h2>
+  </div>
+  <ol id="steps" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></ol>
+ </div>
+</section>
+
+<!-- ===== POR QUÉ ELEGIRNOS ===== -->
+<section id="porque" class="py-20" style="background:var(--surface);border-block:1px solid var(--line)">
+ <div class="max-w-6xl mx-auto px-5">
+  <div class="text-center max-w-2xl mx-auto reveal">
+   <span class="chip">¿Por qué elegirnos?</span>
+   <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold">Cercanía y seguridad en cada paso</h2>
+  </div>
+  <div id="why" class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+  <div class="reveal mt-10 rounded-3xl p-8 sm:p-12 text-center text-white" style="background:linear-gradient(135deg,#1856c8,#12906a)">
+   <i data-lucide="heart-handshake" class="w-10 h-10 mx-auto"></i>
+   <p class="mt-4 text-2xl sm:text-3xl font-extrabold max-w-3xl mx-auto leading-snug">Tu tranquilidad es nuestra prioridad.</p>
+   <p class="mt-2 text-lg opacity-95 max-w-2xl mx-auto">Te ayudamos a entender tus trámites y a dar cada paso con mayor seguridad.</p>
+  </div>
+ </div>
+</section>
+
+<!-- ===== COMPROMISO SOCIAL ===== -->
+<section id="compromiso" class="py-20">
+ <div class="max-w-5xl mx-auto px-5">
+  <div class="text-center max-w-2xl mx-auto reveal">
+   <span class="chip">Nuestro compromiso social</span>
+   <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold">Trabajamos por un futuro más justo</h2>
+   <p class="mt-3 mute">Nuestro trabajo se alinea con los Objetivos de Desarrollo Sostenible de la ONU.</p>
+  </div>
+  <div class="mt-12 grid md:grid-cols-2 gap-6">
+   <article class="card reveal p-7 flex gap-5">
+    <div class="shrink-0 w-20 h-20 rounded-2xl grid place-items-center text-white font-extrabold text-3xl" style="background:#dd1367" aria-hidden="true">10</div>
+    <div><h3 class="font-bold text-xl">ODS 10 · Reducción de las desigualdades</h3><p class="mt-2 mute">Queremos facilitar la igualdad de oportunidades y la inclusión de las personas inmigrantes.</p><i data-lucide="scale" class="mt-3" style="color:#dd1367"></i></div>
+   </article>
+   <article class="card reveal p-7 flex gap-5">
+    <div class="shrink-0 w-20 h-20 rounded-2xl grid place-items-center text-white font-extrabold text-3xl" style="background:#00689d" aria-hidden="true">16</div>
+    <div><h3 class="font-bold text-xl">ODS 16 · Paz, justicia e instituciones sólidas</h3><p class="mt-2 mute">Queremos facilitar el acceso a información sobre derechos y procedimientos administrativos.</p><i data-lucide="landmark" class="mt-3" style="color:#00689d"></i></div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="py-20" style="background:var(--hero)">
+ <div class="max-w-6xl mx-auto px-5 grid lg:grid-cols-5 gap-10">
+  <div class="lg:col-span-2 reveal">
+   <span class="chip">Contacto</span>
+   <h2 class="mt-4 text-3xl sm:text-4xl font-extrabold">Cuéntanos tu situación</h2>
+   <p class="mt-3 mute">Rellena el formulario y te responderemos para programar tu primera cita. También puedes escribirnos por WhatsApp.</p>
+   <ul class="mt-6 space-y-3" id="contactList"></ul>
+   <button id="waBtn" class="btn btn-g mt-7 w-full sm:w-auto"><i data-lucide="message-circle" class="w-5 h-5"></i> Escribir por WhatsApp</button>
+   <p id="waMsg" class="hidden mt-3 text-sm" style="color:#b45309" role="status"></p>
+  </div>
+  <form id="contactForm" class="lg:col-span-3 card p-6 sm:p-8 grid sm:grid-cols-2 gap-4 reveal" novalidate>
+   <div><label class="font-semibold text-sm" for="nombre">Nombre</label><input class="field mt-1" id="nombre" name="nombre" autocomplete="name" required></div>
+   <div><label class="font-semibold text-sm" for="correo">Correo electrónico</label><input class="field mt-1" id="correo" name="correo" type="email" autocomplete="email" required></div>
+   <div><label class="font-semibold text-sm" for="telefono">Teléfono</label><input class="field mt-1" id="telefono" name="telefono" type="tel" autocomplete="tel" required></div>
+   <div><label class="font-semibold text-sm" for="tramite">Tipo de trámite</label>
+    <select class="field mt-1" id="tramite" name="tramite" required><option value="">Selecciona una opción</option><option>Asesoramiento laboral</option><option>Permisos de trabajo</option><option>Arraigo sociolaboral</option><option>Homologación de títulos</option><option>NIE y documentación</option><option>Contratos de trabajo</option><option>Reagrupación familiar</option><option>Otro / no estoy seguro</option></select></div>
+   <div class="sm:col-span-2"><label class="font-semibold text-sm" for="mensaje">Explícanos tu situación</label><textarea class="field mt-1" id="mensaje" name="mensaje" rows="4" required></textarea></div>
+   <label class="sm:col-span-2 flex gap-3 text-sm mute items-start"><input type="checkbox" id="priv" class="mt-1 w-4 h-4" required> Acepto que Tramita Fácil use mis datos para responder a mi solicitud.</label>
+   <p id="formMsg" class="sm:col-span-2 text-sm font-semibold hidden" role="alert"></p>
+   <button class="btn btn-p sm:col-span-2" type="submit"><i data-lucide="send" class="w-5 h-5"></i> Enviar solicitud</button>
+  </form>
+ </div>
+</section>
+</main>
+
+<footer class="py-10" style="background:#0b2a5c;color:#cfdcf5">
+ <div class="max-w-6xl mx-auto px-5 text-sm flex flex-col md:flex-row gap-4 justify-between">
+  <p class="font-extrabold text-white text-lg">Tramita <span style="color:#3ccf8e">Fácil</span></p>
+  <p class="max-w-xl">Servicio de orientación y acompañamiento administrativo. No garantizamos resultados legales; los casos que requieren asistencia jurídica se derivan a profesionales cualificados.</p>
+  <p>© <span id="yr"></span> Tramita Fácil</p>
+ </div>
+</footer>
+
+<script>
+const services=[
+ ["briefcase","Asesoramiento laboral","Orientación sobre cómo trabajar legalmente en España."],
+ ["file-check-2","Permisos de trabajo","Ayuda con la preparación y presentación de solicitudes de autorización de trabajo."],
+ ["handshake","Arraigo sociolaboral","Orientación sobre los requisitos y la documentación relacionada con este procedimiento."],
+ ["graduation-cap","Homologación de títulos","Información sobre cómo homologar estudios y títulos extranjeros."],
+ ["id-card","NIE y documentación","Ayuda para preparar y organizar la documentación necesaria."],
+ ["file-signature","Contratos de trabajo","Orientación sobre los tipos de contratos y los derechos laborales."],
+ ["users","Reagrupación familiar","Asesoramiento sobre los trámites para que tus familiares puedan reunirse contigo en España."]];
+const steps=[
+ ["message-circle","Contacta con nosotros","Cuéntanos qué necesitas."],
+ ["calendar-check","Primera cita","Programamos una cita para conocer tu situación."],
+ ["search-check","Estudio del caso","Analizamos tus necesidades y tu documentación."],
+ ["scale","Asesoramiento especializado","Cuando sea necesario, facilitamos el contacto con un abogado especializado en extranjería."]];
+const why=[
+ ["messages-square","Información clara","Explicaciones comprensibles, sin lenguaje complicado."],
+ ["user-round-check","Orientación personalizada","Cada situación es distinta y la tratamos así."],
+ ["shield-alert","Prevención de estafas","Te ayudamos a detectar y evitar posibles fraudes."],
+ ["route","Acompañamiento","Estamos a tu lado durante todo el proceso administrativo."]];
+const $=s=>document.querySelector(s);
+$('#serviceGrid').innerHTML=services.map(([i,t,d],n)=>`<article class="card reveal p-6" style="transition-delay:${n*50}ms"><div class="ico ${n%2?'g':''}"><i data-lucide="${i}"></i></div><h3 class="mt-4 text-xl font-bold">${t}</h3><p class="mt-2 mute">${d}</p><a href="#contacto" class="mt-4 inline-flex items-center gap-1 font-bold blue text-sm" data-service="${t}">Consultar <i data-lucide="arrow-right" class="w-4 h-4"></i></a></article>`).join('');
+$('#steps').innerHTML=steps.map(([i,t,d],n)=>`<li class="card reveal p-6 relative" style="transition-delay:${n*80}ms"><span class="absolute top-4 right-5 text-5xl font-extrabold" style="color:var(--line)">${n+1}</span><div class="ico g"><i data-lucide="${i}"></i></div><h3 class="mt-4 font-bold text-lg">${t}</h3><p class="mt-2 mute text-sm">${d}</p></li>`).join('');
+$('#why').innerHTML=why.map(([i,t,d],n)=>`<div class="card reveal p-6 text-center" style="transition-delay:${n*60}ms"><div class="ico mx-auto"><i data-lucide="${i}"></i></div><h3 class="mt-4 font-bold">${t}</h3><p class="mt-2 mute text-sm">${d}</p></div>`).join('');
+// Datos de contacto (solo se muestran si los rellenas en CONFIG)
+const cl=[["phone",CONFIG.telefono,"Teléfono"],["mail",CONFIG.email,"Correo electrónico"],["map-pin",CONFIG.direccion,"Dirección"]];
+$('#contactList').innerHTML=cl.map(([i,v,l])=>`<li class="flex items-center gap-3"><span class="ico !w-11 !h-11"><i data-lucide="${i}"></i></span><span>${v?`<strong>${v}</strong>`:`<span class="mute italic">${l}: añade tu dato real en CONFIG</span>`}</span></li>`).join('');
+$('#yr').textContent=new Date().getFullYear();
+lucide.createIcons();
+// Menú móvil
+const mb=$('#menuBtn'),mm=$('#mobileMenu');
+mb.onclick=()=>{const o=mm.classList.toggle('hidden');mb.setAttribute('aria-expanded',String(!o))};
+mm.querySelectorAll('a').forEach(a=>a.onclick=()=>{mm.classList.add('hidden');mb.setAttribute('aria-expanded','false')});
+// Animaciones al desplazar
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// Servicio preseleccionado en el formulario
+document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click',()=>{$('#tramite').value=a.dataset.service}));
+// WhatsApp
+$('#waBtn').onclick=()=>{
+ const n=(CONFIG.whatsapp||'').replace(/\D/g,'');
+ if(!n){const m=$('#waMsg');m.textContent='El número de WhatsApp aún no está configurado. Añádelo en CONFIG.whatsapp.';m.classList.remove('hidden');return}
+ window.open(`https://wa.me/${n}?text=${encodeURIComponent(CONFIG.whatsappMensaje)}`,'_blank','noopener');
+};
+// Formulario
+$('#contactForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const f=e.target,m=$('#formMsg');
+ const show=(t,ok)=>{m.textContent=t;m.style.color=ok?'var(--green)':'#b91c1c';m.classList.remove('hidden')};
+ if(!f.checkValidity()||!/^\S+@\S+\.\S+$/.test(f.correo.value)){f.reportValidity();show('Revisa los campos marcados y acepta el uso de tus datos.',false);return}
+ const data=Object.fromEntries(new FormData(f));
+ if(!CONFIG.formEndpoint){console.info('Solicitud (modo demostración):',data);show('¡Gracias! Hemos recibido tu solicitud. (Modo demostración: aún no está conectado a un servidor).',true);f.reset();return}
+ try{
+  const r=await fetch(CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+  if(!r.ok)throw 0;show('¡Gracias! Hemos recibido tu solicitud y te responderemos pronto.',true);f.reset();
+ }catch{show('No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos por WhatsApp.',false)}
+});
+</script>
+</body>
+</html>
